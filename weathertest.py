@@ -118,7 +118,8 @@ if st.checkbox("Show Average Temperature by Month"):
     data["Month"] = data["Date/Time"].dt.month
     # Calculate mean temperature by month
     mean_temp_by_month = data.groupby("Month")["Temp_C"].mean()
-    #st.DataFrame(mean_temp_by_month)
+    st.write("Average temperature by month")
+    st.DataFrame(mean_temp_by_month)
     # Create bar chart of mean temperature by month
     fig, ax = plt.subplots()
     mean_temp_by_month.plot(kind="bar", ax=ax)
