@@ -91,40 +91,41 @@ if st.checkbox("Show all instances when 'Weather is Clear' and 'Relative Humidit
         st.write(data[(data['Weather Condition'] == 'Clear') & ((data['Rel Hum_%'] > 50) | (data['Visibility_km'] > 40))])
 
         # Data visualization question
-st.write("## Distribution of Temperatures")
+if st.checkbox(" Show Distribution of Temperatures")
 # Create histogram of temperatures
-fig, ax = plt.subplots()
-sns.histplot(data=data, x="Temp_C", ax=ax)
-ax.set_xlabel("Temperature (Celsius)")
-ax.set_ylabel("Count")
-# Display histogram
-st.pyplot(fig)
+    fig, ax = plt.subplots()
+    sns.histplot(data=data, x="Temp_C", ax=ax)
+    ax.set_xlabel("Temperature (Celsius)")
+    ax.set_ylabel("Count")
+    # Display histogram
+    st.pyplot(fig)
 #Is there a relationship between temperature and visibility?
 # Data visualization question
-st.write("## Relationship between Temperature and Visibility")
+if st.checkbox("## Relationship between Temperature and Visibility")
 # Create scatterplot of temperature and visibility
-fig, ax = plt.subplots()
-sns.scatterplot(data=data, x="Temp_C", y="Visibility_km", ax=ax)
-ax.set_xlabel("Temperature (Celsius)")
-ax.set_ylabel("Visibility (km)")
-# Display scatterplot
-st.pyplot(fig)
+    fig, ax = plt.subplots()
+    sns.scatterplot(data=data, x="Temp_C", y="Visibility_km", ax=ax)
+    ax.set_xlabel("Temperature (Celsius)")
+    ax.set_ylabel("Visibility (km)")
+    # Display scatterplot
+    st.pyplot(fig)
 #What is the average temperature by month?
 # Data visualization question
-st.write("## Average Temperature by Month")
+if st.checkbox("Show Average Temperature by Month")
 # Convert date column to datetime
-data["Date/Time"] = pd.to_datetime(data["Date/Time"])
+    data["Date/Time"] = pd.to_datetime(data["Date/Time"])
 # Create new column for month
-data["Month"] = data["Date/Time"].dt.month
-# Calculate mean temperature by month
-mean_temp_by_month = data.groupby("Month")["Temp_C"].mean()
-# Create bar chart of mean temperature by month
-fig, ax = plt.subplots()
-mean_temp_by_month.plot(kind="bar", ax=ax)
-ax.set_xlabel("Month")
-ax.set_ylabel("Mean Temperature (Celsius)")
-ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], rotation=0)
-# Display bar chart
-st.pyplot(fig)
+    data["Month"] = data["Date/Time"].dt.month
+    # Calculate mean temperature by month
+    mean_temp_by_month = data.groupby("Month")["Temp_C"].mean()
+    #st.DataFrame(mean_temp_by_month)
+    # Create bar chart of mean temperature by month
+    fig, ax = plt.subplots()
+    mean_temp_by_month.plot(kind="bar", ax=ax)
+    ax.set_xlabel("Month")
+    ax.set_ylabel("Mean Temperature (Celsius)")
+    ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], rotation=0)
+    # Display bar chart
+    st.pyplot(fig)
 #What is the average pressure by weather condition?
 
