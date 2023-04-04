@@ -101,7 +101,7 @@ if st.checkbox(" Show Distribution of Temperatures"):
     st.pyplot(fig)
 #Is there a relationship between temperature and visibility?
 # Data visualization question
-if st.checkbox("## Relationship between Temperature and Visibility"):
+if st.checkbox("Relationship between Temperature and Visibility"):
     # Create scatterplot of temperature and visibility
     fig, ax = plt.subplots()
     sns.scatterplot(data=data, x="Temp_C", y="Visibility_km", ax=ax)
