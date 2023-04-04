@@ -91,7 +91,7 @@ if st.checkbox("Show all instances when 'Weather is Clear' and 'Relative Humidit
         st.write(data[(data['Weather Condition'] == 'Clear') & ((data['Rel Hum_%'] > 50) | (data['Visibility_km'] > 40))])
 
         # Data visualization question
-if st.checkbox(" Show Distribution of Temperatures")
+if st.checkbox(" Show Distribution of Temperatures"):
     # Create histogram of temperatures
     fig, ax = plt.subplots()
     sns.histplot(data=data, x="Temp_C", ax=ax)
@@ -101,7 +101,7 @@ if st.checkbox(" Show Distribution of Temperatures")
     st.pyplot(fig)
 #Is there a relationship between temperature and visibility?
 # Data visualization question
-if st.checkbox("## Relationship between Temperature and Visibility")
+if st.checkbox("## Relationship between Temperature and Visibility"):
     # Create scatterplot of temperature and visibility
     fig, ax = plt.subplots()
     sns.scatterplot(data=data, x="Temp_C", y="Visibility_km", ax=ax)
@@ -111,7 +111,7 @@ if st.checkbox("## Relationship between Temperature and Visibility")
     st.pyplot(fig)
 #What is the average temperature by month?
 # Data visualization question
-if st.checkbox("Show Average Temperature by Month")
+if st.checkbox("Show Average Temperature by Month"):
     # Convert date column to datetime
     data["Date/Time"] = pd.to_datetime(data["Date/Time"])
     # Create new column for month
