@@ -92,7 +92,7 @@ if st.checkbox("Show all instances when 'Weather is Clear' and 'Relative Humidit
 
         # Data visualization question
 if st.checkbox(" Show Distribution of Temperatures")
-# Create histogram of temperatures
+    # Create histogram of temperatures
     fig, ax = plt.subplots()
     sns.histplot(data=data, x="Temp_C", ax=ax)
     ax.set_xlabel("Temperature (Celsius)")
@@ -102,7 +102,7 @@ if st.checkbox(" Show Distribution of Temperatures")
 #Is there a relationship between temperature and visibility?
 # Data visualization question
 if st.checkbox("## Relationship between Temperature and Visibility")
-# Create scatterplot of temperature and visibility
+    # Create scatterplot of temperature and visibility
     fig, ax = plt.subplots()
     sns.scatterplot(data=data, x="Temp_C", y="Visibility_km", ax=ax)
     ax.set_xlabel("Temperature (Celsius)")
@@ -112,9 +112,9 @@ if st.checkbox("## Relationship between Temperature and Visibility")
 #What is the average temperature by month?
 # Data visualization question
 if st.checkbox("Show Average Temperature by Month")
-# Convert date column to datetime
+    # Convert date column to datetime
     data["Date/Time"] = pd.to_datetime(data["Date/Time"])
-# Create new column for month
+    # Create new column for month
     data["Month"] = data["Date/Time"].dt.month
     # Calculate mean temperature by month
     mean_temp_by_month = data.groupby("Month")["Temp_C"].mean()
