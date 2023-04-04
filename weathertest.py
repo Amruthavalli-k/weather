@@ -134,14 +134,14 @@ if st.checkbox("Show Average Temperature by Month"):
     st.pyplot(fig)
 #What is the average pressure by weather condition?
 if st.checkbox("Show Average pressure by weather condition"):
-    avg_pressure=data.groupby("weather condition")["Press_kPa"].mean()
+    avg_pressure=data.groupby("Weather Condition")["Press_kPa"].mean()
     st.write("Average pressure by weather condition")
     st.write(avg_pressure)
     # Create bar chart of mean pressure by weather condition
     fig, ax = plt.subplots()
     avg_pressure.plot(kind="bar", ax=ax)
     ax.set_xlabel("Press_kPa")
-    ax.set_ylabel("weather condition")
+    ax.set_ylabel("Weather Condition")
     ax.set_xticklabels(["data.groupby('Weather Condition')"], rotation=0)
     # Display bar chart
     st.pyplot(fig)
