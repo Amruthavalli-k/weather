@@ -34,7 +34,7 @@ if st.checkbox("Show raw data"):
 if st.checkbox("Show first 25 rows"):
         st.write(data.head(25))
         
-st.write("APPLYING BASIC FUNCTIONS ON THE DATASET")
+st.write("\nAPPLYING BASIC FUNCTIONS ON THE DATASET")
 if st.checkbox("Show shape"):
         st.write(data.shape)
 
@@ -52,7 +52,7 @@ if st.checkbox("Show count of non-null values"):
 if st.checkbox("Show unique values count for each column"):
         st.write(data.nunique())
         
-st.write("APPLYING SPECIAL OR REQURIED QUERIES BASED ON THE DATASET")
+st.write("\nAPPLYING SPECIAL OR REQURIED QUERIES BASED ON THE DATASET")
 if st.checkbox("Show unique 'Wind Speed' values"):
         st.write(data['Wind Speed_km/h'].unique())
 if st.checkbox("Show number of times 'Weather is exactly Clear'"):
@@ -94,7 +94,7 @@ if st.checkbox("Show all instances when 'Weather is Clear' and 'Relative Humidit
         st.write(data[(data['Weather Condition'] == 'Clear') & ((data['Rel Hum_%'] > 50) | (data['Visibility_km'] > 40))])
 
         # Data visualization question
-st.write("APPLYING DATA VISUALIZATION QUESTIONS")
+st.write("\nAPPLYING DATA VISUALIZATION QUESTIONS")
 if st.checkbox(" Show Distribution of Temperatures"):
     # Create histogram of temperatures
     fig, ax = plt.subplots()
