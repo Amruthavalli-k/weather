@@ -142,6 +142,6 @@ if st.checkbox("Show Average pressure by weather condition"):
     avg_pressure.plot(kind="bar", ax=ax)
     ax.set_xlabel("Press_kPa")
     ax.set_ylabel("Weather Condition")
-    ax.set_xticklabels(["data.groupby('Weather Condition')"], rotation=0)
+    #ax.set_xticklabels(["data.groupby('Weather Condition')"], rotation=0)
     # Display bar chart
     st.pyplot(fig)
