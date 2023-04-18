@@ -81,11 +81,11 @@ if True:
         mn=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[mn].min())
 if True:
-        st.checkbox("Variance of attributes of the dataset"):
+        st.checkbox("Variance of attributes of the dataset")
         vr=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[vr].var())
 if True:
-        st.checkbox("Standard Deviation of attributes of the dataset"):
+        st.checkbox("Standard Deviation of attributes of the dataset")
         sd=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[sd].std())
 #if st.checkbox("Show Standard Deviation of 'Pressure'"):
