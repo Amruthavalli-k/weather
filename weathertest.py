@@ -59,6 +59,7 @@ if (option=="Show unique values count for each column"):
         st.write(data.nunique())
 if st.checkbox("Show statistical analysis of the dataset"):
         st.write(data.describe())
+        
 st.header("Appling Special or Required Querirs based on the dataset")
 unq = st.selectbox("Show unique values of:",data.columns)
 if unq is not None:
@@ -71,7 +72,8 @@ if st.checkbox("Show number of times 'Wind Speed was exactly 4 km/h'"):
 if st.checkbox("Mean values of attributes of the dataset"):
         men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[men].mean())
-if st.checkbox("Maximum  values of attributes of the dataset"):
+if True:
+        st.write("Maximum  values of attributes of the dataset")
         mx=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[mx].max())
 if st.checkbox("Minimum values of attributes of the dataset"):
