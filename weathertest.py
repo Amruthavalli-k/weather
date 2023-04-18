@@ -60,7 +60,7 @@ if (option=="Show unique values count for each column"):
 if st.checkbox("Show statistical analysis of the dataset"):
         st.write(data.describe())
         
-st.header("Appling Special or Required Querirs based on the dataset")
+st.header("Appling Special or Required Queries based on the dataset")
 unq = st.selectbox("Show unique values of:",data.columns)
 if unq is not None:
         st.write(data[unq].unique())
@@ -72,7 +72,7 @@ if st.checkbox("Show number of times 'Wind Speed was exactly 4 km/h'"):
 if st.checkbox("Mean values of attributes of the dataset"):
         men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[men].mean())
-if True:
+"""if True:
         st.write("Maximum  values of attributes of the dataset")
         mx=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[mx].max())
@@ -89,7 +89,7 @@ if st.checkbox("Standard Deviation of attributes of the dataset"):
 #if st.checkbox("Show Standard Deviation of 'Pressure'"):
         #st.write(data.Press_kPa.std())
 #if st.checkbox("Show Variance of 'Relative Humidity'"):
-        #st.write(data['Rel Hum_%'].var())
+        #st.write(data['Rel Hum_%'].var())"""
     
 w=data['Weather Condition'].unique()
 wethr=st.selectbox("Show all instances when the following  'Weather Condition' was recorded:",w)
