@@ -186,7 +186,10 @@ if uploaded_file is not None:
     ax.set_xticklabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], rotation=0)
 # Display bar chart
 if st.checkbox("show average temperature by month"):
-   st.pyplot(fig)
+    mean_temp_by_month = data.groupby("Month")["Temp_C"].mean()
+    st.write("Average temperature by month")
+    st.write(mean_temp_by_month)
+    st.pyplot(fig)
 #average pressure by weather condition
 if st.checkbox("Show Average pressure by weather condition"):
     avg_pressure=data.groupby("Weather Condition")["Press_kPa"].mean()
