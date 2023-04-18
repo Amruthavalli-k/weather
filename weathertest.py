@@ -53,8 +53,6 @@ if (option=="Show columns"):
         st.write(data.columns)
 if (option=="Show data types"):
         st.write(data.dtypes)
-if (option=="Show unique values for 'Weather Condition' column"):
-        st.write(data['Weather Condition'].unique())
 if (option=="Show count of non-null values"):
         st.write(data.count())
 if (option=="Show unique values count for each column"):
@@ -71,12 +69,24 @@ if st.checkbox("Show number of times 'Wind Speed was exactly 4 km/h'"):
         st.write(data[data['Wind Speed_km/h'] == 4].shape[0])
         
 if st.checkbox("Mean values of attributes of the dataset"):
-        men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C'])
+        men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
         st.write(data[men].mean())
-if st.checkbox("Show Standard Deviation of 'Pressure'"):
-        st.write(data.Press_kPa.std())
-if st.checkbox("Show Variance of 'Relative Humidity'"):
-        st.write(data['Rel Hum_%'].var())
+if st.checkbox("Maximum  values of attributes of the dataset"):
+        mx=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
+        st.write(data[mx].max())
+if st.checkbox("Minimum values of attributes of the dataset"):
+        mn=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
+        st.write(data[mn].min())
+ if st.checkbox("Variance of attributes of the dataset"):
+        vr=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
+        st.write(data[vr].var())
+ if st.checkbox("Standard Deviation of attributes of the dataset"):
+        sd=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km','Press_kPa'])
+        st.write(data[sd].std())
+#if st.checkbox("Show Standard Deviation of 'Pressure'"):
+        #st.write(data.Press_kPa.std())
+#if st.checkbox("Show Variance of 'Relative Humidity'"):
+        #st.write(data['Rel Hum_%'].var())
     
 w=data['Weather Condition'].unique()
 wethr=st.selectbox("Show all instances when the following  'Weather Condition' was recorded:",w)
