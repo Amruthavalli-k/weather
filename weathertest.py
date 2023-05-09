@@ -63,23 +63,27 @@ st.header("Appling Special or Required Querirs based on the dataset")
 unq = st.selectbox("Show unique values of:",data.columns)
 if unq is not None:
         st.write(data[unq].unique())
-if st.checkbox("Show number of times 'Weather is exactly Clear'"):
-        st.write(data[data['Weather Condition'] == 'Clear'].shape[0])
-if st.checkbox("Show number of times 'Wind Speed was exactly 4 km/h'"):
-        st.write(data[data['Wind Speed_km/h'] == 4].shape[0])
+w=data['Weather Condition'].unique()
+weathr1 = st.selectbox("Show number of times 'Weather' is :",w)
+if weathr1 is not None:
+        st.write(data[data['Weather Condition'] == weathr1].shape[0])
+if st.checkbox("Show number of times 'Wind Speed was exactly selected km/h'"):
+        wd1=st.slider("Select the wind speed :",0,80)
+        st.write(data[data['Wind Speed_km/h'] == wd1].shape[0])
+        st.write(data[data['Wind Speed_km/h'] == wd1])
         
 if st.checkbox("Mean values of attributes of the dataset"):
-        men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C'])
+        men=st.selectbox("Select the desired column: ",['Temp_C','Dew Point Temp_C','Rel Hum_%','Wind Speed_km/h','Visibility_km'])
         st.write(data[men].mean())
 if st.checkbox("Show Standard Deviation of 'Pressure'"):
         st.write(data.Press_kPa.std())
 if st.checkbox("Show Variance of 'Relative Humidity'"):
         st.write(data['Rel Hum_%'].var())
     
-w=data['Weather Condition'].unique()
+
 wethr=st.selectbox("Show all instances when the following  'Weather Condition' was recorded:",w)
 if wethr is not None:
-    #st.write('Number of instances of ',wethr,' are: ',data[wethr].nunique())
+    st.write('Number of instances of ',wethr,' are: ',data[data['Weather Condition']==wethr].shape[0])
     st.write(data[data['Weather Condition']==wethr])
  
 if st.checkbox("Show all instances when 'Wind Speed' and 'Visibility' are greater than selected values"):
@@ -87,9 +91,9 @@ if st.checkbox("Show all instances when 'Wind Speed' and 'Visibility' are greate
         visib= st.slider('Choose the visibility:', 0, 50)
         st.write(data[(data['Wind Speed_km/h'] > wispeed) & (data['Visibility_km'] >visib)])
 if st.checkbox("Show all instances when 'Wind Speed' and 'Visibility' are less than selected values"):
-        wispeed1 = st.slider('Choose the wind speed:', 0, 100)
-        visib1= st.slider('Choose the visibility:', 0, 50)
-        st.write(data[(data['Wind Speed_km/h'] < wispeed1) & (data['Visibility_km'] <visib1)])
+        ws = st.slider('Choose the wind speed:', 0, 80)
+        vb= st.slider('Choose the visibility:', 0, 60)
+        st.write(data[(data['Wind Speed_km/h'] < ws) & (data['Visibility_km'] <vb)])
 if st.checkbox("Show Mean value of each column against each 'Weather Condition'"):
         data["Date/Time"] = pd.to_datetime(data["Date/Time"])
         data["Month"] = data["Date/Time"].dt.month
@@ -98,12 +102,19 @@ if st.checkbox("Show Minimum value of each column against each 'Weather Conditio
         st.write(data.groupby('Weather Condition').min())
 if st.checkbox("Show Maximum value of each column against each 'Weather Condition'"):
         st.write(data.groupby('Weather Condition').max())
-if st.checkbox("Show all instances when 'Weather is selected conditon' or 'Relative humidity is selected value'"):
+if st.checkbox("Show all instances when "):
         wcond= st.selectbox("select the weather condition:",data['Weather Condition'].unique())
-        visib2=st.slider('Choose the Relative humidity:', 0, 100)
-        st.write(data[(data['Weather Condition'] == wcond) | (data['Rel Hum_%'] == visib2)])
-if st.checkbox("Show all instances when 'Weather is Clear' and 'Relative Humidity is greater than 50' or 'Visibility is above 40'"):
-        st.write(data[(data['Weather Condition'] == 'Clear') & ((data['Rel Hum_%'] > 50) | (data['Visibility_km'] > 40))])
+        rel1=st.slider('Choose the Relative humidity range:', 0, 100)
+        visib2= st.slider('choose the visibilty level:',0,50)
+        temp1=st.slider('choose the temperature:', -10, 40)
+        wind1=st.slider('choose the windspeed_kmph:',1,80)
+        x1=data[data['Weather Condition'] == wcond ]
+        x1=x1[x1['Rel Hum_%'] == rel1] 
+        x1=x1[x1['Visibility_km'] == visib2]
+        x1=x1[x1['Wind Speed_km/h'] == wind1]
+        st.write(x1)
+        
+
 # Convert date column to datetime
 if uploaded_file is not None:
     data["Date/Time"] = pd.to_datetime(data["Date/Time"])
@@ -172,6 +183,7 @@ if uploaded_file is not None:
 # Display scatterplot
 if st.checkbox(" Relationship between Temperature and Visibility"):
    st.pyplot(fig)
+
 #What is the average temperature by month?
 # Create bar chart of mean temperature by month
 if uploaded_file is not None:
