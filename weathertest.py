@@ -18,7 +18,7 @@ if uploaded_file is not None:
     st.dataframe(data)
     data.rename(columns = {'Weather' : 'Weather Condition'}, inplace=True)
 # Define the list of names
-names = ["21A21A6103-K.NEERAJA", "21A21A6131-K.AMRUTHA VALLI", "21A21A6123-K.VAMSI","21A21A6104-B.SAI RAM","21A21A6107-CH.KALYAN RAM","21A21A6126-T.MUKESH","21A21A6102-A.HEMANTH"]
+names = ["K.NEERAJA", "K.AMRUTHA VALLI", "K.VAMSI","B.SAI RAM","CH.KALYAN RAM","T.MUKESH","A.HEMANTH"]
 
 # Add the names to the sidebar
 st.sidebar.title("Project Team Members:")
