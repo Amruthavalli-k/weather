@@ -28,6 +28,7 @@ for name in names:
 
 st.sidebar.title("Under The Guidance of :")
 st.sidebar.write("Dr.Bomma.Ramakrishna")
+st.sidebar.write("Dr.P.Srinivasulu")
 st.header("Weather Data Analysis")
 if st.checkbox("Show raw data"):
         st.write(data)
