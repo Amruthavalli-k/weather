@@ -6,6 +6,32 @@ import streamlit as st
 from PIL import Image
 logo = Image.open('logo1.png')
 icon = Image.open('clouds1.jpg')
+# Load images
+logo = Image.open('logo1.png')
+background_image = Image.open('clouds1.jpg')  # Adjust the path to your background image
+
+# Set page configuration
+st.set_page_config(page_title="Weather EDA", page_icon=logo, layout="wide")
+
+# Apply background image via CSS
+st.markdown(
+    f"""
+    <style>
+    .reportview-container {{
+        background: url(data:image/jpeg;base64,{background_image}) no-repeat center center fixed;
+        background-size: cover;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Display images and title
+st.image(logo)
+st.title("Exploratory Data Analysis on Weather Dataset")
+
+# File upload and data processing sections...
+# (Your existing code continues here)
 
 st.set_page_config(page_title="weather  EDA", page_icon=icon, layout="wide")
 st.image(logo)
